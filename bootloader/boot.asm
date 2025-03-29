@@ -6,7 +6,6 @@ start:
     mov si, boot_msg
     call print_string
 
-    ; Protected Mode'a Geçiş
     lgdt [gdt_desc]
     mov eax, cr0
     or  eax, 1
@@ -31,9 +30,9 @@ stack resb 4096
 [SECTION .data]
 boot_msg db "Rust Kernel Loading...", 0
 gdt_start:
-    dq 0x0000000000000000  ; NULL Descriptor
-    dq 0x00CF9A000000FFFF  ; Code Segment Descriptor
-    dq 0x00CF92000000FFFF  ; Data Segment Descriptor
+    dq 0x0000000000000000
+    dq 0x00CF9A000000FFFF
+    dq 0x00CF92000000FFFF
 gdt_end:
 gdt_desc:
     dw gdt_end - gdt_start - 1

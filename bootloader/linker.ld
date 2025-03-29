@@ -1,7 +1,7 @@
 ENTRY(_start)
 
 SECTIONS {
-    . = 1M; /* Kernel'i 1MB adresine yükle */
+    . = 1M;
 
     .text : {
         *(.text)
